@@ -1,0 +1,15 @@
+{
+  "name": "promptpilot",
+  "description": "PromptPilot — turn rough, vague prompts into precise, context-enriched prompts inside your agent session.",
+  "owner": {
+    "name": "Savas Turkoglu",
+    "email": "savasturkoglu.dev@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "prompt-pilot",
+      "source": "./plugin",
+      "description": "Rewrites rough, vague prompts into precise, context-enriched prompts by exploring the current codebase (read-only). Usage: /prompt-pilot \"your rough prompt\""
+    }
+  ]
+}

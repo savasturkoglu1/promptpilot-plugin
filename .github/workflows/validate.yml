@@ -1,0 +1,39 @@
+name: Validate
+
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate JSON manifests
+        run: |
+          jq empty .claude-plugin/marketplace.json
+          jq empty plugin/.claude-plugin/plugin.json
+
+      - name: Check version is bumped alongside command changes
+        if: github.event_name == 'pull_request'
+        run: |
+          git fetch origin "${{ github.base_ref }}" --depth=1
+          if ! git diff --quiet "origin/${{ github.base_ref }}" -- plugin/commands/; then
+            if git diff --quiet "origin/${{ github.base_ref }}" -- plugin/.claude-plugin/plugin.json; then
+              echo "::error::plugin/commands/ changed but plugin.json version was not bumped — users will not receive the update."
+              exit 1
+            fi
+          fi
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Validate plugin with Claude Code CLI
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude plugin validate ./plugin --strict
+          claude plugin validate . --strict

@@ -1,0 +1,13 @@
+{
+  "name": "prompt-pilot",
+  "description": "Turns rough, vague prompts into precise, context-enriched prompts. Explores the current codebase read-only, weaves real file paths and symbols into the rewritten prompt, and never implements the task itself.",
+  "version": "0.2.0",
+  "author": {
+    "name": "Savas Turkoglu",
+    "email": "savasturkoglu.dev@gmail.com"
+  },
+  "homepage": "https://github.com/savasturkoglu/promptpilot",
+  "repository": "https://github.com/savasturkoglu/promptpilot",
+  "license": "MIT",
+  "keywords": ["prompt", "prompt-engineering", "context", "optimizer"]
+}
