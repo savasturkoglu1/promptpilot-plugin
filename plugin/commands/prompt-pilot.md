@@ -37,6 +37,34 @@ If the raw prompt contains `-loop` (or `- loop`), strip it from the prompt and a
 
 Without `-loop`, do not add this section.
 
+# Plan flag
+
+If the raw prompt contains `-plan` (or `- plan`), strip it from the prompt and append a section to the optimized prompt titled `PLAN GATE`, adapted to the specific task:
+
+1. **Plan before touching anything**: before making any edit or running any command, present a concrete implementation plan — the files to change (with paths), what changes in each, the order of steps, and any risks or open questions.
+2. **Approval gate**: show the plan and stop; nothing is edited or executed until the user approves the plan. If the user requests changes, revise and re-present it.
+3. **No silent deviation**: after approval, implement exactly the approved plan; if mid-way a different approach becomes necessary, pause and present the updated plan instead of silently diverging.
+
+Without `-plan`, do not add this section.
+
+# Safe flag
+
+If the raw prompt contains `-safe` (or `- safe`), strip it from the prompt and append a section to the optimized prompt titled `SAFETY RAILS`, adapted to the specific task:
+
+1. **Minimal diff**: touch as few files and lines as the task allows — no drive-by refactors, renames, or formatting churn outside the task's scope.
+2. **No new dependencies**: do not add or upgrade packages unless the task explicitly requires it; if it does, call it out prominently in the result.
+3. **No destructive operations**: no deleting or overwriting unrelated files, no `git reset`/force-push, no database migrations or data-mutating commands.
+4. **Prefer reversible changes**: additive changes over in-place rewrites; keep existing behavior working until the replacement is verified.
+5. **Stop on uncertainty**: if an instruction is ambiguous or an action could lose data or break unrelated features, stop and ask instead of guessing.
+
+Without `-safe`, do not add this section.
+
+# Quick flag
+
+If the raw prompt contains `-quick` (or `- quick`), strip it and SKIP the codebase exploration entirely — no subagent, no file reads or searches. Rewrite the prompt using only the language and structure steps of the Optimization methodology (intent, wording, WHAT / HOW / CONSTRAINTS / VALIDATION); omit the WHERE section and add no `@file/path` references beyond any the user already wrote. Use it for prompts that don't depend on the current codebase.
+
+All flags can be combined (e.g. `-quick -plan -turkce`).
+
 # Your process (read-only exploration)
 
 To keep the main conversation context clean, delegate the work: launch ONE subagent (type "Explore" if available, otherwise "general-purpose") and pass it the raw prompt, the chosen output language, and the full Optimization methodology / Enrichment / Quality sections below, instructing it to explore read-only and return ONLY the rewritten prompt. The subagent's file reads then never enter this conversation's context. When it returns, continue at the Output section with its result. If subagents are unavailable, do the exploration yourself as described below.

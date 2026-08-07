@@ -74,10 +74,13 @@ scripts/install-agents.sh --project          # .opencode/ .gemini/ .cursor/ in c
 
 ## Flags
 
-Both flags can appear anywhere in the prompt:
+Flags can appear anywhere in the prompt and can be combined (e.g. `-quick -plan -turkce`):
 
 - **Language** — `-turkce` / `-dutch` / any language name → rewrite the optimized prompt in that language; `-o` → keep the original prompt's language; no flag → English (best results with coding agents).
 - **Loop** — `-loop` appends a `LOOP HARNESS` section to the optimized prompt: a measurable exit condition, a verify-fix iteration loop with objective checks, a bounded iteration budget, explicit stop conditions, and an honest exit report. Use it for tasks like "make all tests pass" where one-pass execution isn't enough.
+- **Plan** — `-plan` appends a `PLAN GATE` section: the executing agent must first present a file-by-file implementation plan and wait for your approval before touching anything, and must re-present the plan instead of silently deviating from it.
+- **Safe** — `-safe` appends a `SAFETY RAILS` section: minimal diff, no new dependencies, no destructive operations, reversible changes preferred, and stop-and-ask on ambiguity. Useful on production codebases.
+- **Quick** — `-quick` skips codebase exploration entirely and only fixes language and structure. Use it for prompts that don't depend on the current codebase.
 
 ## Contributing
 

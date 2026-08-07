@@ -512,7 +512,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="badges">
-        <span class="badge hot">v0.2.0</span>
+        <span class="badge hot">v0.3.0</span>
         <span class="badge">MIT License</span>
         <span class="badge">No server · no binary · no MCP</span>
       </div>
@@ -722,14 +722,14 @@ scripts/install-agents.sh --project          <span class="cm"># .opencode/ .gemi
   <section id="usage">
     <div class="wrap">
       <p class="eyebrow">05 · Usage &amp; flags</p>
-      <h2>One command, two flags</h2>
-      <p class="lede">Both flags can appear anywhere in the prompt.</p>
+      <h2>One command, five flags</h2>
+      <p class="lede">Flags can appear anywhere in the prompt and can be combined.</p>
 
       <div class="codeblock" style="margin-top: 36px;">
         <pre><code id="usage-ex">/prompt-pilot "make the parser faster"
 /prompt-pilot "add error handling to @src/auth/login.ts"
 /prompt-pilot "hata yönetimi ekle -turkce"
-/prompt-pilot "parser'ı hızlandır -o"</code></pre>
+/prompt-pilot "refactor the auth flow -plan -safe"</code></pre>
         <button class="copy-btn" type="button" data-copy="usage-ex" aria-label="Copy usage examples">copy</button>
       </div>
 
@@ -754,6 +754,33 @@ scripts/install-agents.sh --project          <span class="cm"># .opencode/ .gemi
           </ul>
           <p style="font-size:0.85rem;color:var(--ink-faint);margin-top:12px;">Use it for tasks like "make all tests pass" where one-pass execution isn't enough.</p>
         </div>
+        <div class="card flag-card">
+          <span class="flag-name">-plan flag</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">Appends a <code>PLAN GATE</code> section to the optimized prompt:</p>
+          <ul>
+            <li>a file-by-file implementation plan before any edit</li>
+            <li>an approval gate — nothing runs until you say so</li>
+            <li>no silent deviation from the approved plan</li>
+          </ul>
+        </div>
+        <div class="card flag-card">
+          <span class="flag-name">-safe flag</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">Appends a <code>SAFETY RAILS</code> section to the optimized prompt:</p>
+          <ul>
+            <li>minimal diff — no drive-by refactors</li>
+            <li>no new dependencies, no destructive operations</li>
+            <li>reversible changes; stop-and-ask on ambiguity</li>
+          </ul>
+        </div>
+        <div class="card flag-card">
+          <span class="flag-name">-quick flag</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">Skips codebase exploration entirely:</p>
+          <ul>
+            <li>no subagent, no file reads</li>
+            <li>fixes language and structure only</li>
+            <li>for prompts that don't depend on the codebase</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -762,7 +789,7 @@ scripts/install-agents.sh --project          <span class="cm"># .opencode/ .gemi
 
 <footer>
   <div class="wrap foot-in">
-    <span>⚡ prompt-pilot v0.2.0 — by Savas Turkoglu</span>
+    <span>⚡ prompt-pilot v0.3.0 — by Savas Turkoglu</span>
     <nav class="foot-links" aria-label="Footer links">
       <a href="https://github.com/savasturkoglu1/promptpilot-plugin">GitHub</a>
       <a href="https://github.com/savasturkoglu1/promptpilot-plugin/blob/main/LICENSE">MIT License</a>

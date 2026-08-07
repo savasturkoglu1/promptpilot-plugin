@@ -39,3 +39,7 @@ Or locally for development:
 - The optimized prompt is shown under a "⚡ Optimized Prompt" heading. Reply **run** to execute it, or describe what to add/change — the prompt is re-optimized and shown again.
 - **Language flag** (optional, anywhere in the prompt): `-turkce` / `-dutch` / any language name → rewrite in that language; `-o` → keep the original prompt's language; no flag → English (best results with coding agents).
 - **Loop flag** (optional): `-loop` appends a `LOOP HARNESS` section to the optimized prompt — a measurable exit condition, a verify-fix iteration loop with objective checks, a bounded iteration budget, explicit stop conditions, and an honest exit report. Use it for tasks like "make all tests pass" or "get page load under 50ms" where one-pass execution isn't enough.
+- **Plan flag** (optional): `-plan` appends a `PLAN GATE` section — the executing agent presents a file-by-file implementation plan and waits for your approval before touching anything, and re-presents the plan instead of silently deviating from it.
+- **Safe flag** (optional): `-safe` appends a `SAFETY RAILS` section — minimal diff, no new dependencies, no destructive operations, reversible changes preferred, stop-and-ask on ambiguity. Useful on production codebases.
+- **Quick flag** (optional): `-quick` skips codebase exploration entirely and only fixes language and structure — for prompts that don't depend on the current codebase.
+- Flags can be combined, e.g. `/prompt-pilot "riskli auth refactoru -plan -safe -turkce"`.
