@@ -13,7 +13,7 @@ Ships as a [Claude Code plugin](#claude-code-plugin) and as native custom comman
 ## Claude Code Plugin
 
 ```
-/plugin marketplace add savasturkoglu/promptpilot
+/plugin marketplace add savasturkoglu1/promptpilot-plugin
 /plugin install prompt-pilot@promptpilot
 ```
 
@@ -33,8 +33,8 @@ See [plugin/README.md](plugin/README.md) for full usage, including the language 
 Clone the repo, then run the installer:
 
 ```sh
-git clone https://github.com/savasturkoglu/promptpilot.git
-cd promptpilot
+git clone https://github.com/savasturkoglu1/promptpilot-plugin.git
+cd promptpilot-plugin
 scripts/install-agents.sh
 ```
 

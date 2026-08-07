@@ -15,7 +15,7 @@ Because Claude Code already has read-only codebase tools and knows your working 
 From the plugin marketplace:
 
 ```
-/plugin marketplace add savasturkoglu/promptpilot
+/plugin marketplace add savasturkoglu1/promptpilot-plugin
 /plugin install prompt-pilot@promptpilot
 ```
 

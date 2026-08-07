@@ -7,7 +7,7 @@
 #   scripts/install-agents.sh codex opencode # only these agents (codex|opencode|gemini|cursor)
 #
 # Claude Code is not handled here — install it as a plugin:
-#   /plugin marketplace add savasturkoglu/promptpilot
+#   /plugin marketplace add savasturkoglu1/promptpilot-plugin
 #   /plugin install prompt-pilot@promptpilot
 
 set -eu

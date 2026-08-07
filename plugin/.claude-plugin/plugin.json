@@ -6,8 +6,8 @@
     "name": "Savas Turkoglu",
     "email": "savasturkoglu.dev@gmail.com"
   },
-  "homepage": "https://github.com/savasturkoglu/promptpilot",
-  "repository": "https://github.com/savasturkoglu/promptpilot",
+  "homepage": "https://github.com/savasturkoglu1/promptpilot-plugin",
+  "repository": "https://github.com/savasturkoglu1/promptpilot-plugin",
   "license": "MIT",
   "keywords": ["prompt", "prompt-engineering", "context", "optimizer"]
 }
