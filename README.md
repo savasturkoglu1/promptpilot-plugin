@@ -8,7 +8,7 @@ Turn rough, vague prompts into precise, context-enriched prompts — inside your
 
 → The agent explores your codebase **read-only**, then returns an optimized prompt with real `@file/paths` and concrete symbols woven in. It never implements the task itself — you review the enriched prompt and reply `run` to execute it.
 
-Ships as a [Claude Code plugin](#claude-code-plugin) and as native custom commands for [Codex CLI, OpenCode, Gemini CLI, and Cursor](#other-agents-codex-opencode-gemini-cli-cursor). No server, no binary, no MCP — the command is pure instructions.
+Ships as a [Claude Code plugin](#claude-code-plugin) and as native custom commands for [Codex CLI](#codex-cli-one-liner-no-clone), [OpenCode, Gemini CLI, and Cursor](#other-agents-opencode-gemini-cli-cursor). No server, no binary, no MCP — the command is pure instructions.
 
 ## The Problem
 
@@ -48,9 +48,19 @@ Then:
 
 See [plugin/README.md](plugin/README.md) for full usage, including the language and loop flags.
 
-## Other Agents (Codex, OpenCode, Gemini CLI, Cursor)
+## Codex CLI (one-liner, no clone)
 
-Clone the repo, then run the installer:
+```sh
+mkdir -p ~/.codex/prompts
+curl -fsSL https://raw.githubusercontent.com/savasturkoglu1/promptpilot-plugin/main/agents/codex/prompt-pilot.md \
+  -o ~/.codex/prompts/prompt-pilot.md
+```
+
+Then in Codex: `/prompt-pilot <rough prompt>`.
+
+## Other Agents (OpenCode, Gemini CLI, Cursor)
+
+Clone the repo, then run the installer (it covers Codex too):
 
 ```sh
 git clone https://github.com/savasturkoglu1/promptpilot-plugin.git

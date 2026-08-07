@@ -391,8 +391,8 @@
   .feat .glyph { font-family: var(--mono); color: var(--amber); font-size: 1.1rem; margin-bottom: 14px; display: block; }
 
   /* ============ install ============ */
-  .install-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 44px; }
-  @media (max-width: 920px) { .install-grid { grid-template-columns: 1fr; } }
+  .install-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 44px; }
+  @media (max-width: 1080px) { .install-grid { grid-template-columns: 1fr; } }
   .install-panel {
     background: var(--bg-panel);
     border: 1px solid var(--line);
@@ -665,7 +665,7 @@ VALIDATION  auth test suite green</div>
   <section id="install">
     <div class="wrap">
       <p class="eyebrow">04 · Install</p>
-      <h2>Two ways in</h2>
+      <h2>Three ways in</h2>
 
       <div class="install-grid">
         <div class="install-panel">
@@ -684,8 +684,23 @@ VALIDATION  auth test suite green</div>
         </div>
 
         <div class="install-panel">
+          <h3>Codex CLI <span class="tag">one-liner</span></h3>
+          <p>No clone needed — drop the prompt file into Codex's prompts folder.</p>
+          <div class="codeblock">
+            <pre><code id="codex-install">mkdir -p ~/.codex/prompts
+curl -fsSL https://raw.githubusercontent.com/savasturkoglu1/promptpilot-plugin/main/agents/codex/prompt-pilot.md -o ~/.codex/prompts/prompt-pilot.md</code></pre>
+            <button class="copy-btn" type="button" data-copy="codex-install" aria-label="Copy Codex CLI install commands">copy</button>
+          </div>
+          <p>Then in Codex:</p>
+          <div class="codeblock">
+            <pre><code id="codex-use">/prompt-pilot "buggy login thing fix it"</code></pre>
+            <button class="copy-btn" type="button" data-copy="codex-use" aria-label="Copy Codex usage command">copy</button>
+          </div>
+        </div>
+
+        <div class="install-panel">
           <h3>Other agents <span class="tag">script</span></h3>
-          <p>Codex CLI · OpenCode · Gemini CLI · Cursor — clone the repo, run the installer.</p>
+          <p>OpenCode · Gemini CLI · Cursor — clone the repo, run the installer (it covers Codex too).</p>
           <div class="codeblock">
             <pre><code id="sh-install">git clone https://github.com/savasturkoglu1/promptpilot-plugin.git
 cd promptpilot-plugin
