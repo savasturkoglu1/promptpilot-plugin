@@ -8,7 +8,7 @@ Turn rough, vague prompts into precise, context-enriched prompts — inside your
 
 → The agent explores your codebase **read-only**, then returns an optimized prompt with real `@file/paths` and concrete symbols woven in. It never implements the task itself — you review the enriched prompt and reply `run` to execute it.
 
-Ships as a [Claude Code plugin](#claude-code-plugin) and as native custom commands for [Codex CLI](#codex-cli-one-liner-no-clone), [OpenCode, Gemini CLI, and Cursor](#other-agents-opencode-gemini-cli-cursor). No server, no binary, no MCP — the command is pure instructions.
+Ships as a [Claude Code plugin](#claude-code-plugin), a [Codex skill](#codex-one-liner-no-clone), and native custom commands for [OpenCode, Gemini CLI, and Cursor](#other-agents-opencode-gemini-cli-cursor). No server, no binary, no MCP — the command is pure instructions.
 
 ## The Problem
 
@@ -48,15 +48,17 @@ Then:
 
 See [plugin/README.md](plugin/README.md) for full usage, including the language and loop flags.
 
-## Codex CLI (one-liner, no clone)
+## Codex (one-liner, no clone)
+
+Installed as a [Codex skill](https://developers.openai.com/codex/skills), so it works in the Codex CLI, the IDE extension, and the desktop app:
 
 ```sh
-mkdir -p ~/.codex/prompts
-curl -fsSL https://raw.githubusercontent.com/savasturkoglu1/promptpilot-plugin/main/agents/codex/prompt-pilot.md \
-  -o ~/.codex/prompts/prompt-pilot.md
+mkdir -p ~/.agents/skills/prompt-pilot
+curl -fsSL https://raw.githubusercontent.com/savasturkoglu1/promptpilot-plugin/main/agents/codex/prompt-pilot/SKILL.md \
+  -o ~/.agents/skills/prompt-pilot/SKILL.md
 ```
 
-Then in Codex: `/prompt-pilot <rough prompt>`.
+Then in Codex: `$prompt-pilot <rough prompt>` (or pick it from the `/skills` menu).
 
 ## Other Agents (OpenCode, Gemini CLI, Cursor)
 
@@ -72,12 +74,12 @@ Or pick agents / install into the current project only:
 
 ```sh
 scripts/install-agents.sh codex opencode     # only these
-scripts/install-agents.sh --project          # .opencode/ .gemini/ .cursor/ in cwd
+scripts/install-agents.sh --project          # .agents/ .opencode/ .gemini/ .cursor/ in cwd
 ```
 
 | Agent | Installed to | Invoke |
 |---|---|---|
-| Codex CLI | `~/.codex/prompts/prompt-pilot.md` | `/prompt-pilot <rough prompt>` |
+| Codex (CLI · IDE · desktop) | `~/.agents/skills/prompt-pilot/SKILL.md` | `$prompt-pilot <rough prompt>` |
 | OpenCode | `~/.config/opencode/command/prompt-pilot.md` | `/prompt-pilot <rough prompt>` |
 | Gemini CLI | `~/.gemini/commands/prompt-pilot.toml` | `/prompt-pilot <rough prompt>` |
 | Cursor | `~/.cursor/commands/prompt-pilot.md` | `/prompt-pilot <rough prompt>` |

@@ -36,8 +36,13 @@ echo "Installing /prompt-pilot ($SCOPE):"
 for t in $TARGETS; do
   case "$t" in
     codex)
-      # Codex custom prompts are global-only.
-      install_file "$AGENTS_DIR/codex/prompt-pilot.md" "${CODEX_HOME:-$HOME/.codex}/prompts" "Codex CLI"
+      # Installed as a skill (custom prompts in ~/.codex/prompts are deprecated
+      # and no longer loaded by codex-cli >= 0.117).
+      if [ "$SCOPE" = project ]; then
+        install_file "$AGENTS_DIR/codex/prompt-pilot/SKILL.md" ".agents/skills/prompt-pilot" "Codex"
+      else
+        install_file "$AGENTS_DIR/codex/prompt-pilot/SKILL.md" "$HOME/.agents/skills/prompt-pilot" "Codex"
+      fi
       ;;
     opencode)
       if [ "$SCOPE" = project ]; then
@@ -62,4 +67,4 @@ for t in $TARGETS; do
       ;;
   esac
 done
-echo "Done. Restart the agent (or open a new session) and type /prompt-pilot"
+echo "Done. Restart the agent (or open a new session) and type /prompt-pilot (Codex: \$prompt-pilot)"

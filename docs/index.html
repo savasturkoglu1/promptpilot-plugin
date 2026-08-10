@@ -512,7 +512,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="badges">
-        <span class="badge hot">v0.3.0</span>
+        <span class="badge hot">v0.3.1</span>
         <span class="badge">MIT License</span>
         <span class="badge">No server · no binary · no MCP</span>
       </div>
@@ -684,16 +684,16 @@ VALIDATION  auth test suite green</div>
         </div>
 
         <div class="install-panel">
-          <h3>Codex CLI <span class="tag">one-liner</span></h3>
-          <p>No clone needed — drop the prompt file into Codex's prompts folder.</p>
+          <h3>Codex <span class="tag">skill</span></h3>
+          <p>No clone needed — installed as a skill, works in the CLI, IDE extension and desktop app.</p>
           <div class="codeblock">
-            <pre><code id="codex-install">mkdir -p ~/.codex/prompts
-curl -fsSL https://raw.githubusercontent.com/savasturkoglu1/promptpilot-plugin/main/agents/codex/prompt-pilot.md -o ~/.codex/prompts/prompt-pilot.md</code></pre>
-            <button class="copy-btn" type="button" data-copy="codex-install" aria-label="Copy Codex CLI install commands">copy</button>
+            <pre><code id="codex-install">mkdir -p ~/.agents/skills/prompt-pilot
+curl -fsSL https://raw.githubusercontent.com/savasturkoglu1/promptpilot-plugin/main/agents/codex/prompt-pilot/SKILL.md -o ~/.agents/skills/prompt-pilot/SKILL.md</code></pre>
+            <button class="copy-btn" type="button" data-copy="codex-install" aria-label="Copy Codex skill install commands">copy</button>
           </div>
           <p>Then in Codex:</p>
           <div class="codeblock">
-            <pre><code id="codex-use">/prompt-pilot "buggy login thing fix it"</code></pre>
+            <pre><code id="codex-use">$prompt-pilot "buggy login thing fix it"</code></pre>
             <button class="copy-btn" type="button" data-copy="codex-use" aria-label="Copy Codex usage command">copy</button>
           </div>
         </div>
@@ -710,7 +710,7 @@ scripts/install-agents.sh</code></pre>
           <p>Or pick agents / install into the current project only:</p>
           <div class="codeblock">
             <pre><code id="sh-variants">scripts/install-agents.sh codex opencode     <span class="cm"># only these</span>
-scripts/install-agents.sh --project          <span class="cm"># .opencode/ .gemini/ .cursor/ in cwd</span></code></pre>
+scripts/install-agents.sh --project          <span class="cm"># .agents/ .opencode/ .gemini/ .cursor/ in cwd</span></code></pre>
             <button class="copy-btn" type="button" data-copy="sh-variants" aria-label="Copy installer variant commands">copy</button>
           </div>
         </div>
@@ -723,7 +723,7 @@ scripts/install-agents.sh --project          <span class="cm"># .opencode/ .gemi
             <tr><th scope="col">Agent</th><th scope="col">Installed to</th><th scope="col">Invoke</th></tr>
           </thead>
           <tbody>
-            <tr><td>Codex CLI</td><td>~/.codex/prompts/prompt-pilot.md</td><td>/prompt-pilot &lt;rough prompt&gt;</td></tr>
+            <tr><td>Codex (CLI · IDE · desktop)</td><td>~/.agents/skills/prompt-pilot/SKILL.md</td><td>$prompt-pilot &lt;rough prompt&gt;</td></tr>
             <tr><td>OpenCode</td><td>~/.config/opencode/command/prompt-pilot.md</td><td>/prompt-pilot &lt;rough prompt&gt;</td></tr>
             <tr><td>Gemini CLI</td><td>~/.gemini/commands/prompt-pilot.toml</td><td>/prompt-pilot &lt;rough prompt&gt;</td></tr>
             <tr><td>Cursor</td><td>~/.cursor/commands/prompt-pilot.md</td><td>/prompt-pilot &lt;rough prompt&gt;</td></tr>
@@ -804,7 +804,7 @@ scripts/install-agents.sh --project          <span class="cm"># .opencode/ .gemi
 
 <footer>
   <div class="wrap foot-in">
-    <span>⚡ prompt-pilot v0.3.0 — by Savas Turkoglu</span>
+    <span>⚡ prompt-pilot v0.3.1 — by Savas Turkoglu</span>
     <nav class="foot-links" aria-label="Footer links">
       <a href="https://github.com/savasturkoglu1/promptpilot-plugin">GitHub</a>
       <a href="https://github.com/savasturkoglu1/promptpilot-plugin/blob/main/LICENSE">MIT License</a>
