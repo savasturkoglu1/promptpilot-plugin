@@ -48,6 +48,23 @@ Then:
 
 See [plugin/README.md](plugin/README.md) for full usage, including the language and loop flags.
 
+### Updating
+
+New versions don't install themselves by default. Enable auto-update once and forget about it:
+
+```
+/plugin  →  Marketplaces tab  →  promptpilot  →  Enable auto-update
+```
+
+After that, Claude Code checks the marketplace in the background shortly after each session starts and installs new releases automatically.
+
+Or update manually whenever you like:
+
+```
+/plugin marketplace update promptpilot
+/plugin update prompt-pilot@promptpilot
+```
+
 ## Codex (one-liner, no clone)
 
 Installed as a [Codex skill](https://developers.openai.com/codex/skills), so it works in the Codex CLI, the IDE extension, and the desktop app:

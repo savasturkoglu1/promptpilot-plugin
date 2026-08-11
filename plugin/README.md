@@ -26,6 +26,21 @@ Or locally for development:
 /plugin install prompt-pilot@promptpilot
 ```
 
+## Updating
+
+Auto-update is off by default for third-party marketplaces. Turn it on once:
+
+```
+/plugin  →  Marketplaces tab  →  promptpilot  →  Enable auto-update
+```
+
+New releases then install automatically in the background after a session starts. Manual alternative:
+
+```
+/plugin marketplace update promptpilot
+/plugin update prompt-pilot@promptpilot
+```
+
 ## Usage
 
 ```
