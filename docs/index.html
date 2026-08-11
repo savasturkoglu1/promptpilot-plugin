@@ -512,7 +512,7 @@
   <section class="hero">
     <div class="wrap">
       <div class="badges">
-        <span class="badge hot">v0.3.1</span>
+        <span class="badge hot">v0.4.0</span>
         <span class="badge">MIT License</span>
         <span class="badge">No server · no binary · no MCP</span>
       </div>
@@ -737,14 +737,15 @@ scripts/install-agents.sh --project          <span class="cm"># .agents/ .openco
   <section id="usage">
     <div class="wrap">
       <p class="eyebrow">05 · Usage &amp; flags</p>
-      <h2>One command, five flags</h2>
-      <p class="lede">Flags can appear anywhere in the prompt and can be combined.</p>
+      <h2>One command, eight flags</h2>
+      <p class="lede">Flags can appear anywhere in the prompt and can be combined. Every approved prompt is logged to your prompt history.</p>
 
       <div class="codeblock" style="margin-top: 36px;">
         <pre><code id="usage-ex">/prompt-pilot "make the parser faster"
 /prompt-pilot "add error handling to @src/auth/login.ts"
 /prompt-pilot "hata yönetimi ekle -turkce"
-/prompt-pilot "refactor the auth flow -plan -safe"</code></pre>
+/prompt-pilot "refactor the auth flow -plan -safe"
+/prompt-pilot "fix the login bug and add dark mode -split"</code></pre>
         <button class="copy-btn" type="button" data-copy="usage-ex" aria-label="Copy usage examples">copy</button>
       </div>
 
@@ -796,6 +797,42 @@ scripts/install-agents.sh --project          <span class="cm"># .agents/ .openco
             <li>for prompts that don't depend on the codebase</li>
           </ul>
         </div>
+        <div class="card flag-card">
+          <span class="flag-name">-ask flag</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">Clarify before optimizing:</p>
+          <ul>
+            <li>up to 3 short questions when the prompt leaves open decisions</li>
+            <li>answers become explicit requirements in the rewritten prompt</li>
+            <li>without it, assumptions are stated inside the prompt instead</li>
+          </ul>
+        </div>
+        <div class="card flag-card">
+          <span class="flag-name">-split flag</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">One rough prompt, several tasks:</p>
+          <ul>
+            <li>splits bundled tasks into self-contained optimized prompts</li>
+            <li>one parallel subagent per task, ordered by dependency</li>
+            <li>reply <code>run</code> for all in order, or <code>run 2</code> for one</li>
+          </ul>
+        </div>
+        <div class="card flag-card">
+          <span class="flag-name">-issue flag</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">Rewrites the prompt as a GitHub issue:</p>
+          <ul>
+            <li>title, context, task, constraints, acceptance-criteria checklist</li>
+            <li><code>run</code> → execute locally · <code>publish</code> → open the issue on your remote via <code>gh</code></li>
+            <li>hand precise work to your team instead of running it yourself</li>
+          </ul>
+        </div>
+        <div class="card flag-card">
+          <span class="flag-name">Prompt history</span>
+          <p style="font-size:0.9rem;color:var(--ink-dim);">Always on — no flag needed:</p>
+          <ul>
+            <li>every approved prompt is appended to <code>.promptpilot/history.md</code></li>
+            <li>a reusable log of your best prompts (date · raw · optimized)</li>
+            <li>ask "show my prompt history" to list past entries</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
@@ -804,7 +841,7 @@ scripts/install-agents.sh --project          <span class="cm"># .agents/ .openco
 
 <footer>
   <div class="wrap foot-in">
-    <span>⚡ prompt-pilot v0.3.1 — by Savas Turkoglu</span>
+    <span>⚡ prompt-pilot v0.4.0 — by Savas Turkoglu</span>
     <nav class="foot-links" aria-label="Footer links">
       <a href="https://github.com/savasturkoglu1/promptpilot-plugin">GitHub</a>
       <a href="https://github.com/savasturkoglu1/promptpilot-plugin/blob/main/LICENSE">MIT License</a>

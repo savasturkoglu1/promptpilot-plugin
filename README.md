@@ -93,6 +93,13 @@ Flags can appear anywhere in the prompt and can be combined (e.g. `-quick -plan 
 - **Plan** — `-plan` appends a `PLAN GATE` section: the executing agent must first present a file-by-file implementation plan and wait for your approval before touching anything, and must re-present the plan instead of silently deviating from it.
 - **Safe** — `-safe` appends a `SAFETY RAILS` section: minimal diff, no new dependencies, no destructive operations, reversible changes preferred, and stop-and-ask on ambiguity. Useful on production codebases.
 - **Quick** — `-quick` skips codebase exploration entirely and only fixes language and structure. Use it for prompts that don't depend on the current codebase.
+- **Ask** — `-ask` lets the agent ask up to 3 clarifying questions first when the prompt leaves genuinely open decisions; the answers are folded into the rewritten prompt as explicit requirements. Without it, the agent never asks — it states its assumptions inside the prompt instead.
+- **Split** — `-split` divides a prompt that bundles several independent tasks ("fix the login bug and add dark mode") into self-contained, dependency-ordered optimized prompts — explored by one parallel subagent per task where the platform supports it. Reply `run` to execute all in order, or `run 2` for a single one.
+- **Issue** — `-issue` formats the rewritten prompt as a ready-to-file GitHub issue (title, context, task, constraints, acceptance-criteria checklist). Reply `run` to execute it locally, or `publish` to create the issue on your repo's remote via the `gh` CLI.
+
+## Prompt History
+
+Every prompt you approve is appended to `.promptpilot/history.md` in your working directory (date, raw prompt, optimized prompt) before it runs — a reusable log of your best prompts. Ask "show my prompt history" in a session to list past entries. Add `.promptpilot/` to `.gitignore` to keep it private, or commit it to share the log with your team.
 
 ## Contributing
 

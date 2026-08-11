@@ -42,4 +42,8 @@ Or locally for development:
 - **Plan flag** (optional): `-plan` appends a `PLAN GATE` section — the executing agent presents a file-by-file implementation plan and waits for your approval before touching anything, and re-presents the plan instead of silently deviating from it.
 - **Safe flag** (optional): `-safe` appends a `SAFETY RAILS` section — minimal diff, no new dependencies, no destructive operations, reversible changes preferred, stop-and-ask on ambiguity. Useful on production codebases.
 - **Quick flag** (optional): `-quick` skips codebase exploration entirely and only fixes language and structure — for prompts that don't depend on the current codebase.
+- **Ask flag** (optional): `-ask` lets the agent ask up to 3 clarifying questions first when the prompt leaves genuinely open decisions; the answers become explicit requirements in the rewritten prompt.
+- **Split flag** (optional): `-split` divides a prompt bundling several independent tasks into self-contained, dependency-ordered optimized prompts (one parallel subagent per task). Reply `run` to execute all in order, or `run 2` for a single one.
+- **Issue flag** (optional): `-issue` formats the rewritten prompt as a ready-to-file GitHub issue. Reply `run` to execute locally, or `publish` to create the issue on the remote via the `gh` CLI.
 - Flags can be combined, e.g. `/prompt-pilot "riskli auth refactoru -plan -safe -turkce"`.
+- **Prompt history**: every approved prompt is appended to `.promptpilot/history.md` in your working directory before it runs. Ask "show my prompt history" to list past entries.
