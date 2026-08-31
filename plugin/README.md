@@ -12,10 +12,13 @@ Because Claude Code already has read-only codebase tools and knows your working 
 
 ## Install
 
-From the plugin marketplace:
+From the plugin marketplace — run these one at a time, the first opens a dialog that expects the marketplace source only:
 
 ```
 /plugin marketplace add savasturkoglu1/promptpilot-plugin
+```
+
+```
 /plugin install prompt-pilot@promptpilot
 ```
 
@@ -23,6 +26,9 @@ Or locally for development:
 
 ```
 /plugin marketplace add /path/to/promptpilot
+```
+
+```
 /plugin install prompt-pilot@promptpilot
 ```
 

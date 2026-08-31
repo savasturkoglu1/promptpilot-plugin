@@ -32,8 +32,13 @@ The implementation run then starts from precise, verified context instead of gue
 
 ## Claude Code Plugin
 
+Run these one at a time — the first opens a dialog that expects the marketplace source only.
+
 ```
 /plugin marketplace add savasturkoglu1/promptpilot-plugin
+```
+
+```
 /plugin install prompt-pilot@promptpilot
 ```
 
