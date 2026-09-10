@@ -4,6 +4,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and the plugin version follows [Semantic Versioning](https://semver.org/).
 
+## [Unreleased]
+
+### Fixed
+- OpenCode: `/prompt-pilot` no longer prints the plugin's full instruction
+  body into the conversation. OpenCode renders a custom command's body as the
+  user message, so the instructions now live in the `prompt-pilot` skill
+  (`~/.config/opencode/skill/prompt-pilot/SKILL.md`) and the command
+  (`~/.config/opencode/command/prompt-pilot.md`) is a thin trigger that loads
+  it via the skill tool. The skill content enters context as a collapsed tool
+  result, so the approval loop, flags, and prompt history keep working.
+  `scripts/install-agents.sh` installs both files, globally and with
+  `--project`; README and landing page updated.
+
 ## [0.4.0] - 2026-08-11
 
 ### Added

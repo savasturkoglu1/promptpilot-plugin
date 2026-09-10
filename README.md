@@ -102,7 +102,7 @@ scripts/install-agents.sh --project          # .agents/ .opencode/ .gemini/ .cur
 | Agent | Installed to | Invoke |
 |---|---|---|
 | Codex (CLI · IDE · desktop) | `~/.agents/skills/prompt-pilot/SKILL.md` | `$prompt-pilot <rough prompt>` |
-| OpenCode | `~/.config/opencode/command/prompt-pilot.md` | `/prompt-pilot <rough prompt>` |
+| OpenCode | `~/.config/opencode/command/prompt-pilot.md` + `~/.config/opencode/skill/prompt-pilot/SKILL.md` | `/prompt-pilot <rough prompt>` |
 | Gemini CLI | `~/.gemini/commands/prompt-pilot.toml` | `/prompt-pilot <rough prompt>` |
 | Cursor | `~/.cursor/commands/prompt-pilot.md` | `/prompt-pilot <rough prompt>` |
 
@@ -125,7 +125,7 @@ Every prompt you approve is appended to `.promptpilot/history.md` in your workin
 
 ## Contributing
 
-[plugin/commands/prompt-pilot.md](plugin/commands/prompt-pilot.md) is the canonical prompt; the files in [agents/](agents/) are per-platform variants of it (they differ only in argument placeholders and tool naming). When editing the canonical prompt, apply the same change to all four variants.
+[plugin/commands/prompt-pilot.md](plugin/commands/prompt-pilot.md) is the canonical prompt; the files in [agents/](agents/) are per-platform variants of it. The OpenCode command ([agents/opencode/prompt-pilot.md](agents/opencode/prompt-pilot.md)) is a thin trigger that loads the shared `prompt-pilot` skill ([agents/codex/prompt-pilot/SKILL.md](agents/codex/prompt-pilot/SKILL.md)) — keep that skill's instructions in sync with the canonical prompt. When editing the canonical prompt, apply the same change to every variant.
 
 ## License
 

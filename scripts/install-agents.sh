@@ -45,10 +45,16 @@ for t in $TARGETS; do
       fi
       ;;
     opencode)
+      # Installed as a thin command + the shared skill. OpenCode renders a
+      # command's body as the user message, so the instructions live in the
+      # prompt-pilot skill (loaded via the skill tool) and the command only
+      # triggers it. The skill body is platform-agnostic and shared with Codex.
       if [ "$SCOPE" = project ]; then
-        install_file "$AGENTS_DIR/opencode/prompt-pilot.md" ".opencode/command" "OpenCode"
+        install_file "$AGENTS_DIR/opencode/prompt-pilot.md" ".opencode/command" "OpenCode command"
+        install_file "$AGENTS_DIR/codex/prompt-pilot/SKILL.md" ".opencode/skill/prompt-pilot" "OpenCode skill"
       else
-        install_file "$AGENTS_DIR/opencode/prompt-pilot.md" "${XDG_CONFIG_HOME:-$HOME/.config}/opencode/command" "OpenCode"
+        install_file "$AGENTS_DIR/opencode/prompt-pilot.md" "${XDG_CONFIG_HOME:-$HOME/.config}/opencode/command" "OpenCode command"
+        install_file "$AGENTS_DIR/codex/prompt-pilot/SKILL.md" "${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skill/prompt-pilot" "OpenCode skill"
       fi
       ;;
     gemini)
